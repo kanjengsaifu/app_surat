@@ -14,9 +14,9 @@ class Login extends CI_Controller {
 
 	public function do_login()
 	{
-		$u = $this->input->post("user");
-		$p = md5($this->input->post("pass"));
-
+		$u = $this->input->post("username");
+		$p = md5($this->input->post("password"));
+		
 		// echo json_encode('user' => $user, 'pass' => $pass);
 		// echo $u."<br>".$p;
 
@@ -28,12 +28,13 @@ class Login extends CI_Controller {
 			$data = array('admin_id' => $cari->id_user ,
 							'admin_user' => $cari->username, 
 							'admin_nama' => $cari->nama,
+					
 							'admin_valid' => TRUE
 			);
 
 			$this->session->set_userdata($data);
 
-			redirect('admin','refresh');
+			redirect('admin');
 		}else{
 			echo "maaf username atau password salah";
 		}

@@ -30,21 +30,37 @@
                 <a href="<?php echo base_url(); ?>admin/surat_keluar" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
+            
             <div class="col-lg-3 col-xs-6">
               <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
                   <h3><?php echo $jenis; ?></h3>
-                  <p>Jenis Surat</p>
+                  <p>Surat Masuk</p>
                 </div>
                 <div class="icon">
-                  <i class="fa fa-tag"></i>
+                  <i class="fa fa-inbox"></i>
                 </div>
                 <a href="<?php echo base_url(); ?>admin/jenis_surat" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
-          </div><!-- /.row -->
-          
+       
+
+          <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-red">
+                <div class="inner">
+                  <h3><?php echo $jenis; ?></h3>
+                  <p>User</p>
+                </div>
+                <div class="icon">
+                  <i class="fa fa-user"></i>
+                </div>
+                <a href="<?php echo base_url(); ?>admin/manage_user" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+
+
 
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->

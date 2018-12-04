@@ -8,7 +8,7 @@
             </h1>
             <ol class="breadcrumb">
               <li><i class="fa fa-dashboard"></i> Home</a></li>
-              <li><a href="<?php echo base_url(); ?>admin/jenis_surat">Manage User</a></li>
+              <li><a href="<?php echo base_url(); ?>admin/manage_user">Manage User</a></li>
               <li class="active">Tambah</li>
               <!--
               <li><a href="#">Layout</a></li>

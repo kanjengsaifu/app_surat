@@ -36,9 +36,33 @@ class Admin extends CI_Controller {
 
 	function insert_jenis(){
 		
-		$jenis = $this->input->post('jenis');
+		$no_agenda = $this->input->post('no_agenda');
+		$tgl_terima= $this->input->post('tgl_terima');
+		$kode_arsip = $this->input->post('kode_arsip');	
+		$no_surat = $this->input->post('no_surat');
+		$tgl_surat= $this->input->post('tgl_surat');
+		$pengirim = $this->input->post('pengirim');
+		$perihal = $this->input->post('perihal');
+		$lampiran= $this->input->post('lampiran');
+		$sifat_surat= $this->input->post('sifat_surat');
+		$penjabat_disposisi= $this->input->post('penjabat_disposisi');
+		$disposisi= $this->input->post('disposisi');
+		$asli_copy = $this->input->post('asli_copy');
+		$informasi_disposisi = $this->input->post('informasi_disposisi');
 		$object = array(
-				'jenis_surat' => $jenis
+				'no_agenda' => $no_agenda,
+				'kode_arsip' => $kode_arsip,
+				'tgl_terima' => $tgl_terima,
+				'no_surat' => $no_surat,
+				'tgl_surat' => $tgl_surat,
+				'pengirim' => $pengirim,
+				'perihal' => $perihal,
+				'lampiran' => $lampiran,
+				'sifat_surat' => $sifat_surat,
+				'penjabat_disposisi' => $penjabat_disposisi,
+				'disposisi' => $disposisi,
+				'asli_copy' => $asli_copy,
+				'informasi_disposisi' => $informasi_disposisi
 			);
 		$this->db->insert('tb_jenis_surat', $object);
 
@@ -46,7 +70,7 @@ class Admin extends CI_Controller {
 	}
 
 	function edit_jenis($id){
-		$a['editdata']	= $this->db->get_where('tb_jenis_surat',array('jenis_id'=>$id))->result_object();		
+		$a['editdata']	= $this->db->get_where('tb_jenis_surat',array('surat_id'=>$id))->result_object();		
 		$a['page']	= "edit_jenis_surat";
 		
 		$this->load->view('admin/index', $a);
@@ -54,11 +78,36 @@ class Admin extends CI_Controller {
 
 	function update_jenis(){
 		$id = $this->input->post('id');
-		$jenis = $this->input->post('jenis');
+		
+		$no_agenda = $this->input->post('no_agenda');
+		$tgl_terima= $this->input->post('tgl_terima');
+		$kode_arsip = $this->input->post('kode_arsip');	
+		$no_surat = $this->input->post('no_surat');
+		$tgl_surat= $this->input->post('tgl_surat');
+		$pengirim = $this->input->post('pengirim');
+		$perihal = $this->input->post('perihal');
+		$lampiran= $this->input->post('lampiran');
+		$sifat_surat= $this->input->post('sifat_surat');
+		$penjabat_disposisi= $this->input->post('penjabat_disposisi');
+		$disposisi= $this->input->post('disposisi');
+		$asli_copy = $this->input->post('asli_copy');
+		$informasi_disposisi = $this->input->post('informasi_disposisi');
 		$object = array(
-				'jenis_surat' => $jenis
+				'no_agenda' => $no_agenda,
+				'kode_arsip' => $kode_arsip,
+				'tgl_terima' => $tgl_terima,
+				'no_surat' => $no_surat,
+				'tgl_surat' => $tgl_surat,
+				'pengirim' => $pengirim,
+				'perihal' => $perihal,
+				'lampiran' => $lampiran,
+				'sifat_surat' => $sifat_surat,
+				'penjabat_disposisi' => $penjabat_disposisi,
+				'disposisi' => $disposisi,
+				'asli_copy' => $asli_copy,
+				'informasi_disposisi' => $informasi_disposisi
 			);
-		$this->db->where('jenis_id', $id);
+		$this->db->where('surat_id', $id);
 		$this->db->update('tb_jenis_surat', $object); 
 
 		redirect('admin/jenis_surat','refresh');
@@ -87,19 +136,23 @@ class Admin extends CI_Controller {
 
 	function insert_surat_keluar(){
 		
-		$jenis = $this->input->post('jenis');
-		$no = $this->input->post('no');
-		$tgl = $this->input->post('tgl');
-		$untuk = $this->input->post('untuk');
+		$no_agenda = $this->input->post('no_agenda');
+		$tgl_surat= $this->input->post('tgl_surat');
+		$kode_arsip = $this->input->post('kode_arsip');	
+		$no_surat = $this->input->post('no_surat');
+		$tujuan = $this->input->post('tujuan');
 		$perihal = $this->input->post('perihal');
-		$ket = $this->input->post('ket');
+		$asli_copy = $this->input->post('asli_copy');
+		$keterangan = $this->input->post('keterangan');
 		$object = array(
-				'jenis_id' => $jenis,
-				'no_surat' => $no,
-				'tgl_surat' => $tgl,
-				'untuk' => $untuk,
+				'no_agenda' => $no_agenda,
+				'kode_arsip' => $kode_arsip,
+				'tgl_surat' => $tgl_surat,
+				'no_surat' => $no_surat,
+				'tujuan' => $tujuan,
 				'perihal' => $perihal,
-				'ket' => $ket
+				'asli_copy' => $asli_copy,
+				'keterangan' => $keterangan
 			);
 		$this->db->insert('tb_surat_keluar', $object);
 
@@ -115,19 +168,23 @@ class Admin extends CI_Controller {
 
 	function update_surat_keluar(){
 		$id = $this->input->post('id');
-		$jenis = $this->input->post('jenis');
-		$no = $this->input->post('no');
-		$tgl = $this->input->post('tgl');
-		$untuk = $this->input->post('untuk');
+		$no_agenda = $this->input->post('no_agenda');
+		$tgl_surat= $this->input->post('tgl_surat');
+		$kode_arsip = $this->input->post('kode_arsip');	
+		$no_surat = $this->input->post('no_surat');
+		$tujuan = $this->input->post('tujuan');
 		$perihal = $this->input->post('perihal');
-		$ket = $this->input->post('ket');
+		$asli_copy = $this->input->post('asli_copy');
+		$keterangan = $this->input->post('keterangan');
 		$object = array(
-				'jenis_id' => $jenis,
-				'no_surat' => $no,
-				'tgl_surat' => $tgl,
-				'untuk' => $untuk,
+				'no_agenda' => $no_agenda,
+				'kode_arsip' => $kode_arsip,
+				'tgl_surat' => $tgl_surat,
+				'no_surat' => $no_surat,
+				'tujuan' => $tujuan,
 				'perihal' => $perihal,
-				'ket' => $ket
+				'asli_copy' => $asli_copy,
+				'keterangan' => $keterangan
 			);
 		$this->db->where('surat_id', $id);
 		$this->db->update('tb_surat_keluar', $object); 

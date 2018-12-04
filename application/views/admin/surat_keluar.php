@@ -22,29 +22,22 @@
                   <h3 class="box-title">
                   	<a href="<?php echo base_url(); ?>admin/tambah_surat_keluar" class="btn btn-sm btn-primary btn-flat"><i class="fa fa-edit"></i> Tambah</a>
                   </h3>
-                  <div class="box-tools">
-                  	<!--
-                    <div class="input-group" style="width: 150px;">
-                      <input type="text" name="table_search" class="form-control input-sm pull-right" placeholder="Search">
-                      <div class="input-group-btn">
-                        <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
-                      </div>
-                    </div>
-                    -->
-                  </div>
+                  
                 </div><!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
                 
                   <table id="example1" class="table table-bordered table-hover dataTable">
                     <thead>
                       <tr>
-                        <th>#</th>
-                        <th>No. Surat</th>
-                        <th>Tgl Surat</th>
-                        <th>Jenis Surat</th>
-                        <th>Untuk</th>
+                        <th>No</th>
+                        <th>No. Agenda</th>
+                        <th>Tanggal Surat</th>
+                        <th>Kode Arsip</th>
+                        <th>No Surat</th>
+                        <th>Tujuan</th>
                         <th>Perihal</th>
-                        <th>Ket</th>
+                        <th>Surat Asli/copy</th>
+                        <th>Keterangan</th>
                         <th>Aksi</th>
                     </thead>
                     <tbody>
@@ -54,14 +47,16 @@
                       	?>
                     	<tr>
                         <td><?php echo $no++ ?></td>
-                    	<td><?php echo $lihat->no_surat?></td>
-                    	<td><?php echo tgl_indo($lihat->tgl_surat) ?></td> 
-                      <td><?php echo ucwords($lihat->jenis_surat) ?></td> 
-                      <td><?php echo ucwords($lihat->untuk) ?></td> 
-                      <td><?php echo ucfirst($lihat->perihal) ?></td> 
-                      <td><?php echo ucfirst($lihat->ket) ?></td>  
-                        <td align="center">
-                          <div class="btn-group" role="group">
+                    	<td><?php echo $lihat->no_agenda?></td>
+                        <td><?php echo tgl_indo($lihat->tgl_surat) ?></td> 
+                    	<td><?php echo ucwords($lihat->kode_arsip) ?></td> 
+                      <td><?php echo ucwords($lihat->no_surat) ?></td> 
+                      <td><?php echo ucfirst($lihat->tujuan) ?></td> 
+                      <td><?php echo ucfirst($lihat->perihal) ?></td>  
+                      <td><?php echo ucwords($lihat->asli_copy) ?></td>  
+                      <td><?php echo ucwords($lihat->keterangan) ?></td>  
+                        <td  align="center">
+                          <div class="btn-group" role="group" >
                             <a href="<?php echo base_url(); ?>admin/edit_surat_keluar/<?php echo $lihat->surat_id ?>" class="btn btn-sm btn-primary btn-flat"><i class="fa fa-edit"></i> Edit</a>
                             <a href="<?php echo base_url(); ?>admin/hapus_surat_keluar/<?php echo $lihat->surat_id ?>" onclick="javascript: return confirm('Anda yakin akan menghapus data ini ?')" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-trash"></i> Hapus</a>
                           </div>

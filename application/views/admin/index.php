@@ -73,12 +73,17 @@
             </li>            
             <li class="<?php if($page == 'jenis_surat'){echo 'active';} ?>">
               <a href="<?php echo base_url(); ?>admin/jenis_surat">
-                <i class="fa fa-tag"></i> <span>Jenis Surat</span>
+                <i class="fa fa-inbox"></i> <span>Surat Masuk</span>
               </a>
             </li>           
             <li class="<?php if($page == 'surat_keluar'){echo 'active';} ?>">
               <a href="<?php echo base_url(); ?>admin/surat_keluar">
-                <i class="fa fa-envelope"></i> <span>Surat Keluar</span>
+                <i class="fa fa-envelope"></i> <span>Surat Keluar</span> 
+              </a>
+            </li>
+             <li class="<?php if($page == 'manage_user'){echo 'active';} ?>">
+              <a href="<?php echo base_url(); ?>admin/manage_user">
+                <i class="fa fa-user"></i> <span>User</span> 
               </a>
             </li>
           </ul>
@@ -103,13 +108,18 @@
       $(function () {
         $("#example1").DataTable({          
           "language": {
-            "url": "<?php echo base_url(); ?>assets/plugins/datatables/Indonesian.json",
-            "sEmptyTable": "Tidak ada data di database"
+            "url": "<?php echo base_url(); ?>assets/plugins/datatables/indonesian.json",
+            
         }
         });
       });
       $(function() {
           $( "#tgl_surat" ).datepicker({ 
+            autoclose: true 
+          });
+        });
+      $(function() {
+          $( "#tgl_terima" ).datepicker({ 
             autoclose: true 
           });
         });

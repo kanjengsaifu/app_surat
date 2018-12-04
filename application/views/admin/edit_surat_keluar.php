@@ -29,46 +29,57 @@
                 <?php  
                 foreach ($editdata as $data):
                 ?>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Jenis Surat</label>
-                      <select name="jenis" class="form-control">
-                        <?php
-                        $l_jenis = $this->db->query("SELECT * FROM tb_jenis_surat")->result();
-                        
-                        if (empty($l_jenis)) {
-                          echo "<option  value=''> --Tidak Ada Data-- </option>";
-                        } else {
-                        foreach($l_jenis as $l_jenis_surat){
-                        ?>
-                       <option <?php if( $data->jenis_id == $l_jenis_surat->jenis_id) {echo "selected"; } ?> value='<?php echo $l_jenis_surat->jenis_id ;?>'><?php echo $l_jenis_surat->jenis_surat ;?></option>
+               
 
-                        <?php 
-                          } 
-                          }
-                        ?>
-                        
-                      </select>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">No Agenda</label>
+                      <input type="text" class="form-control" name="no_agenda" value="<?php echo $data->no_agenda ?>" />
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Tanggal Surat</label>
+                      <input type="text" class="form-control" name="tgl_surat" id="tgl_surat" data-date-format="yyyy-mm-dd" value="<?php echo $data->tgl_surat ?>"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Kode Arsip</label>
+                      <input type="text" class="form-control" name="kode_arsip" value="<?php echo $data->kode_arsip ?>"/>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">No Surat</label>
-                      <input type="text" class="form-control" name="no" value="<?php echo $data->no_surat ?>" />
+                      <input type="text" class="form-control" name="no_surat" value="<?php echo $data->no_surat ?>"/>
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Tgl Surat</label>
-                      <input type="text" class="form-control" name="tgl" id="tgl_surat" data-date-format="yyyy-mm-dd" value="<?php echo $data->tgl_surat ?>"/>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Untuk</label>
-                      <input type="text" class="form-control" name="untuk" value="<?php echo $data->untuk ?>"/>
+                    <label for="exampleInputEmail1">Tujuan</label>
+                      <input type="text" class="form-control" name="tujuan" value="<?php echo $data->tujuan ?>"/>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Perihal</label>
-                      <input type="text" class="form-control" name="perihal" value="<?php echo $data->perihal ?>"/>
+                      <input type="text" class="form-control" name="perihal" value="<?php echo $data->perihal ?>" />
                   </div>
                   <div class="form-group">
+                    <label for="exampleInputEmail1">Surat Asli/Copy</label>
+                      <select name="asli_copy" required="required" class="form-control">
+                          
+                          <?php if($data->asli_copy == 'surat copy'): ?>
+                             <option value="surat copy">Surat Copy</option>
+                             <option value="surat asli">Surat Asli</option>
+                          <?php endif ?>
+                          <?php if($data->asli_copy == 'surat asli'): ?>
+                             <option value="surat asli">Surat Asli</option>
+                             <option value="surat copy">Surat Copy</option>
+                          <?php endif ?>
+
+                          </select>
+                             
+                                                       
+                  </div> <br> <br>
+                  <div class="form-group">
                     <label for="exampleInputEmail1">Keterangan</label>
-                    <textarea name="ket" class="form-control" cols="30" rows="10"><?php echo $data->ket ?></textarea>
+                    <textarea name="keterangan" class="form-control" cols="30" rows="10"> <?php echo $data->keterangan ?> </textarea>
                   </div>
+
+
+
+
                   <input type="hidden" name="id" value="<?php echo $data->surat_id ?>">
                   <a href="<?php echo base_url(); ?>admin/surat_keluar" class="btn btn-warning"><i class="fa fa-arrow-left"></i> Batal</a>
                   <button type="submit" name="simpan" class="btn btn-success"><i class="fa fa-save"></i> Simpan</button>

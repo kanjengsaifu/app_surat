@@ -29,11 +29,85 @@
                 <?php  
                 foreach ($editdata as $data):
                 ?>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Jenis Surat</label>
-                      <input type="text" class="form-control" name="jenis" value="<?php echo $data->jenis_surat; ?>" />
+                  
+                   <div class="form-group">
+                    <label for="exampleInputEmail1">No Agenda</label>
+                      <input type="text" class="form-control" name="no_agenda" value="<?php echo $data->no_agenda ?>" />
                   </div>
-                  <input type="hidden" name="id" value="<?php echo $data->jenis_id ?>">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Tanggal Diterima</label>
+                      <input type="text" class="form-control" name="tgl_terima" id="tgl_terima" data-date-format="yyyy-mm-dd" value="<?php echo $data->tgl_terima ?>"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Kode Arsip</label>
+                      <input type="text" class="form-control" name="kode_arsip" value="<?php echo $data->kode_arsip ?>"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">No Surat</label>
+                      <input type="text" class="form-control" name="no_surat" value="<?php echo $data->no_surat ?>"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Tanggal Surat</label>
+                      <input type="text" class="form-control" name="tgl_surat" id="tgl_surat" data-date-format="yyyy-mm-dd" value="<?php echo $data->tgl_surat ?>"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Pengirim</label>
+                      <input type="text" class="form-control" name="pengirim" value="<?php echo $data->pengirim ?>"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Perihal</label>
+                      <input type="text" class="form-control" name="perihal" value="<?php echo $data->perihal ?>" />
+                  </div>
+                   <div class="form-group">
+                    <label for="exampleInputEmail1">Lampiran</label>
+                      <input type="text" class="form-control" name="lampiran" value="<?php echo $data->lampiran ?>" />
+                  </div>
+                   <div class="form-group">
+                    <label for="exampleInputEmail1">Sifat Surat</label>
+                      <input type="text" class="form-control" name="sifat_surat" value="<?php echo $data->sifat_surat ?>" />
+                  </div>
+                   <div class="form-group">
+                    <label for="exampleInputEmail1">Penjabar Pendisposisi</label>
+                      <input type="text" class="form-control" name="penjabat_disposisi" value="<?php echo $data->penjabat_disposisi ?>" />
+                  </div>
+                   <div class="form-group">
+                    <label for="exampleInputEmail1">Disposisi</label>
+                      <select name="disposisi" required="required" class="form-control col-md-8">
+                          <?php if($data->asli_copy == 'tu'): ?>
+                             <option value="surat copy">Surat Copy</option>
+                             <option value="surat asli">Surat Asli</option>
+                          <?php endif ?>
+                          <?php if($data->asli_copy == 'surat asli'): ?>
+                             <option value="surat asli">Surat Asli</option>
+                             <option value="surat copy">Surat Copy</option>
+                          <?php endif ?>
+
+                      </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Surat Asli/Copy</label>
+                      <select name="asli_copy" required="required" class="form-control">
+                          
+                          <?php if($data->asli_copy == 'surat copy'): ?>
+                             <option value="surat copy">Surat Copy</option>
+                             <option value="surat asli">Surat Asli</option>
+                          <?php endif ?>
+                          <?php if($data->asli_copy == 'surat asli'): ?>
+                             <option value="surat asli">Surat Asli</option>
+                             <option value="surat copy">Surat Copy</option>
+                          <?php endif ?>
+
+                          </select>
+                             
+                                                       
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Informasi Disposisi</label>
+                    <textarea name="informasi_disposisi" class="form-control" cols="30" rows="10"> <?php echo $data->informasi_disposisi ?> </textarea>
+                  </div>
+
+
+                  <input type="hidden" name="id" value="<?php echo $data->surat_id ?>">
                   <a href="<?php echo base_url(); ?>admin/jenis_surat" class="btn btn-warning"><i class="fa fa-arrow-left"></i> Batal</a>
                   <button type="submit" name="simpan" class="btn btn-success"><i class="fa fa-save"></i> Simpan</button>
                 <?php endforeach ?>
