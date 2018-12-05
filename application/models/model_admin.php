@@ -28,16 +28,12 @@ class Model_admin extends CI_Model {
 		return $this->db->delete('tb_surat_keluar', array('surat_id' => $id));
 	}
 
-	public function cek_login($user, $pass)
-	{
-		$array = array('username' => $user, 'password' => $pass);
 
-		$query = $this->db->where($array);
+    function cek_login($table,$where){		
+		return $this->db->get_where($table,$where);
+	}	
 
-		$query = $this->db->get('login');
 
-		return $query;
-	}
 
 	public function tampil_user()
 	{

@@ -31,7 +31,7 @@
                 ?>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Username</label>
-                      <input type="text" class="form-control" name="user" value="<?php echo $data->username; ?>" />
+                      <input type="text" class="form-control" name="username" value="<?php echo $data->username; ?>" />
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Password</label>

@@ -43,14 +43,14 @@
       
       <div class="login-box-body">
         <p class="login-box-msg">Silahkan Login</p>
-        <?php echo $this->session->flashdata("k"); ?>
+       <?php echo $this->session->flashdata("k"); ?>
         <?php echo form_open('login/do_login'); ?>
           <div class="form-group has-feedback">
-            <input type="text" name="user" autofocus required="" class="form-control" placeholder="Username">
+            <input type="text" name="username" autofocus required="" class="form-control" placeholder="Username">
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="password" name="pass" required="" class="form-control" placeholder="Password">
+            <input type="password" name="password" required="" class="form-control" placeholder="Password">
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           <div class="row">
