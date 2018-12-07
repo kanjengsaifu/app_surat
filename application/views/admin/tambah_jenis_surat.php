@@ -284,21 +284,20 @@ $cat.on("change",function(){
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Disposisi</label> <br> <br>
-                      <label name="disposisi" required="required">
-                        <label class="checkbox-inline"><input type="checkbox" value="Tata Usaha">Tata Usaha</label>
-                        <label class="checkbox-inline"><input type="checkbox" value="Kapok Datin">Kapok Datin</label>
-                        <label class="checkbox-inline"><input type="checkbox" value="Kapok Obs">Kapok Obs</label>
-                        <label class="checkbox-inline"><input type="checkbox" value="Kapok Forcaster">Kapok Forcaster</label>
-                        <label class="checkbox-inline"><input type="checkbox" value="Kapok Teknisi">Kapok Teknisi</label>
-                        <label class="checkbox-inline"><input type="checkbox" value="PPK">PPK</label> <br> <br>
-                        <label class="checkbox-inline"><input type="checkbox" value="Bendahara Penerimaan">Bendahara Penerimaan</label>
-                        <label class="checkbox-inline"><input type="checkbox" value="Bendahara Pengeluaran">Bendahara Pengeluaran</label>
-                        <label class="checkbox-inline"><input type="checkbox" value="Pejabat ULP">Pejabat ULP</label>
-                        <label class="checkbox-inline"><input type="checkbox" value="PPABP">PPABP</label>
-                        <label class="checkbox-inline"><input type="checkbox" value="Petugas SAIBA">Petugas SAIBA</label>
-                        <label class="checkbox-inline"><input type="checkbox" value="Petugas BMN">Petugas BMN</label>
-                      </label>
-                        
+                
+                      <input type="checkbox" value="Tata Usaha" name="disposisi[]" >Tata Usaha
+                      <input type="checkbox" value="Kapok Datin" name="disposisi[]" class="checkbox-inline" >Kapok Datin
+                      <input type="checkbox" value="Kapok Obs" name="disposisi[]" class="checkbox-inline">Kapok Obs
+                      <input type="checkbox" value="Kapok Forcaster" name="disposisi[]" class="checkbox-inline">Kapok Forcaster
+                      <input type="checkbox" value="Kapok Teknisi" name="disposisi[]" class="checkbox-inline">Kapok Teknisi
+                      <input type="checkbox" value="PPK" name="disposisi[]" class="checkbox-inline">PPK <br> <br>
+                      <input type="checkbox" value="Bendahara Penerimaan" name="disposisi[]" class="checkbox-inline">Bendahara Penerimaan
+                      <input type="checkbox" value="Bendahara Pengeluaran" name="disposisi[]" class="checkbox-inline">Bendahara Pengeluaran
+                      <input type="checkbox" value="Pejabat ULP" name="disposisi[]" class="checkbox-inline">Pejabat ULP
+                      <input type="checkbox" value="PPABP" name="disposisi[]" class="checkbox-inline">PPABP
+                      <input type="checkbox" value="Petugas SAIBA" name="disposisi[]" class="checkbox-inline">Petugas SAIBA
+                      <input type="checkbox" value="Petugas BMN" name="disposisi[]" class="checkbox-inline">Petugas BMN
+                      
                  </div>
                      <!--  <select name="disposisi" required="required" class="form-control col-md-8">
                                 <option value="Tata Usaha">TU</option>

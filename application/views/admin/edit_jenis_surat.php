@@ -71,7 +71,7 @@
                       <input type="text" class="form-control" name="penjabat_disposisi" value="<?php echo $data->penjabat_disposisi ?>" />
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1" name="disposisi">Disposisi</label> <br>
+                    <label for="exampleInputEmail1" name="disposisi[]">Disposisi</label> <br>
                         <label class="checkbox-inline"><input type="checkbox" value="Tata Usaha">Tata Usaha</label>
                         <label class="checkbox-inline"><input type="checkbox" value="Kapok Datin">Kapok Datin</label>
                         <label class="checkbox-inline"><input type="checkbox" value="Kapok Obs">Kapok Obs</label>
