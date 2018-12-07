@@ -70,19 +70,21 @@
                     <label for="exampleInputEmail1">Penjabar Pendisposisi</label>
                       <input type="text" class="form-control" name="penjabat_disposisi" value="<?php echo $data->penjabat_disposisi ?>" />
                   </div>
-                   <div class="form-group">
-                    <label for="exampleInputEmail1">Disposisi</label>
-                      <select name="disposisi" required="required" class="form-control col-md-8">
-                          <?php if($data->asli_copy == 'tu'): ?>
-                             <option value="surat copy">Surat Copy</option>
-                             <option value="surat asli">Surat Asli</option>
-                          <?php endif ?>
-                          <?php if($data->asli_copy == 'surat asli'): ?>
-                             <option value="surat asli">Surat Asli</option>
-                             <option value="surat copy">Surat Copy</option>
-                          <?php endif ?>
-
-                      </select>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1" name="disposisi">Disposisi</label> <br>
+                        <label class="checkbox-inline"><input type="checkbox" value="Tata Usaha">Tata Usaha</label>
+                        <label class="checkbox-inline"><input type="checkbox" value="Kapok Datin">Kapok Datin</label>
+                        <label class="checkbox-inline"><input type="checkbox" value="Kapok Obs">Kapok Obs</label>
+                        <label class="checkbox-inline"><input type="checkbox" value="Kapok Forcaster">Kapok Forcaster</label>
+                        <label class="checkbox-inline"><input type="checkbox" value="Kapok Teknisi">Kapok Teknisi</label>
+                        <label class="checkbox-inline"><input type="checkbox" value="PPK">PPK</label> <br> <br>
+                        <label class="checkbox-inline"><input type="checkbox" value="Bendahara Penerimaan">Bendahara Penerimaan</label>
+                        <label class="checkbox-inline"><input type="checkbox" value="Bendahara Pengeluaran">Bendahara Pengeluaran</label>
+                        <label class="checkbox-inline"><input type="checkbox" value="Pejabat ULP">Pejabat ULP</label>
+                        <label class="checkbox-inline"><input type="checkbox" value="PPABP">PPABP</label>
+                        <label class="checkbox-inline"><input type="checkbox" value="Petugas SAIBA">Petugas SAIBA</label>
+                        <label class="checkbox-inline"><input type="checkbox" value="Petugas BMN">Petugas BMN</label>
+                        
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Surat Asli/Copy</label>

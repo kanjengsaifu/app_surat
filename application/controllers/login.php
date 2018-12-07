@@ -89,7 +89,8 @@ class Login extends CI_Controller {
 			redirect(base_url("admin"));
  
 		}else{
-			echo "Username dan password salah !";
+			$this->session->set_flashdata("k", "<div id=\"alert\" class=\"alert alert-error\">username or password is not valid</div>");
+			redirect('login');
 		}
 	}
 	public function logout()
