@@ -13,6 +13,11 @@ class Model_admin extends CI_Model {
 		return $this->db->get("tb_surat_keluar");
 	}
 
+	public function tampil_manage_user()
+	{
+		return $this->db->get("login");
+	}
+
 	public function edit_jenis($id)
 	{
 		return $this->db->get_where('tb_jenis_surat',array('surat_id'=>$id));

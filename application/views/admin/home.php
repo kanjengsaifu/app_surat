@@ -50,7 +50,7 @@
               <!-- small box -->
               <div class="small-box bg-red">
                 <div class="inner">
-                  <h3><?php echo $jenis; ?></h3>
+                  <h3><?php echo $manage_user; ?></h3>
                   <p>User</p>
                 </div>
                 <div class="icon">

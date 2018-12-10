@@ -34,7 +34,7 @@
 
       <header class="main-header">
         <!-- Logo -->
-        <a href="index.php" class="logo">
+        <a href="index" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>A</b>SM</span>
           <!-- logo for regular state and mobile devices -->
@@ -50,7 +50,8 @@
             <ul class="nav navbar-nav">             
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown">
-        			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Selamat Datang, User <span class="caret"></span></a>
+        			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Selamat Datang, <?php echo $this->session->userdata('nama'); ?> <span class="caret"> </span></a>
+
           			  <ul class="dropdown-menu" role="menu">
           				<li><a href="<?php echo base_url(). 'login/logout'; ?>"> Logout </a></li>
         			  </ul>
@@ -67,7 +68,7 @@
           <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
             <li class="<?php if($page == 'home'){echo 'active';} ?>">
-              <a href="<?php echo base_url(); ?>admin/index">
+              <a href="index">
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span> 
               </a>
             </li>            

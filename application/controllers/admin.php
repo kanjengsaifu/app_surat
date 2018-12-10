@@ -15,6 +15,8 @@ class Admin extends CI_Controller {
 
 		$a['jenis']	= $this->model_admin->tampil_jenis()->num_rows(); //untuk ambil data dari file model_admin.php dengan function tampil_jenis
 		$a['surat_keluar']	= $this->model_admin->tampil_surat_keluar()->num_rows();
+
+		$a['manage_user']	= $this->model_admin->tampil_manage_user()->num_rows();
 		$a['page']	= "home";
 		
 		$this->load->view('admin/index', $a);
@@ -47,8 +49,7 @@ class Admin extends CI_Controller {
 		$sifat_surat= $this->input->post('sifat_surat');
 		$penjabat_disposisi= $this->input->post('penjabat_disposisi');
 		$disposisi= implode(',' , $this->input->post('disposisi'));
-
-
+	
 		$asli_copy = $this->input->post('asli_copy');
 		$informasi_disposisi = $this->input->post('informasi_disposisi');
 
