@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>App Surat Menyurat | Dashboard</title>
+    <title>Pengarsipan Surat BMKG</title>
+     <link rel="shortcut icon" type="image/x-icon" href="https://cdn.bmkg.go.id/Web/bmkg-icon.png" />
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -36,9 +37,9 @@
         <!-- Logo -->
         <a href="index" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>A</b>SM</span>
+          <span class="logo-mini"><b>ASB</b></span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>App</b> Surat Menyurat</span>
+          <span class="logo-lg">Arsip Surat BMKG</span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
@@ -50,7 +51,7 @@
             <ul class="nav navbar-nav">             
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown">
-        			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Selamat Datang, <?php echo $this->session->userdata('nama'); ?> <span class="caret"> </span></a>
+        			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Selamat Datang, <?php echo ucwords($this->session->userdata ('nama')); ?> <span class="caret"> </span></a>
 
           			  <ul class="dropdown-menu" role="menu">
           				<li><a href="<?php echo base_url(). 'login/logout'; ?>"> Logout </a></li>
@@ -93,13 +94,6 @@
       </aside>
 
       <?php $this->load->view('admin/'.$page); ?>
-
-      <footer class="main-footer">
-        <div class="pull-right hidden-xs">
-          <b>Version</b> 1.0
-        </div>
-        <strong>Copyright &copy; <?php echo date('Y') ?> <a href="#">Surday Soft</a>.</strong> All rights reserved.
-      </footer>
     </div><!-- ./wrapper -->
 
     <!-- jQuery 2.1.4 -->

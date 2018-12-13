@@ -56,10 +56,10 @@
                       <td><?php echo ucwords($lihat->asli_copy) ?></td>  
                       <td><?php echo ucwords($lihat->keterangan) ?></td>  
                         <td  align="center">
-                          <div class="btn-group" role="group" >
+                          <div class="btn-group" role="group" style="width: 350px;">
                             <a href="<?php echo base_url(); ?>admin/edit_surat_keluar/<?php echo $lihat->surat_id ?>" class="btn btn-sm btn-primary btn-flat"><i class="fa fa-edit"></i> Edit</a>
                             <a href="<?php echo base_url(); ?>admin/hapus_surat_keluar/<?php echo $lihat->surat_id ?>" onclick="javascript: return confirm('Anda yakin akan menghapus data ini ?')" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-trash"></i> Hapus</a>
-                          </div>
+                           
                         </td>                  		
                     	</tr>
                     	<?php endforeach ?>

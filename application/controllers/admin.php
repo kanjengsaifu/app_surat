@@ -48,8 +48,7 @@ class Admin extends CI_Controller {
 		$lampiran= $this->input->post('lampiran');
 		$sifat_surat= $this->input->post('sifat_surat');
 		$penjabat_disposisi= $this->input->post('penjabat_disposisi');
-		$disposisi= implode(',' , $this->input->post('disposisi'));
-	
+		$disposisi= implode(', ' , $this->input->post('disposisi'));
 		$asli_copy = $this->input->post('asli_copy');
 		$informasi_disposisi = $this->input->post('informasi_disposisi');
 
@@ -93,7 +92,7 @@ class Admin extends CI_Controller {
 		$lampiran= $this->input->post('lampiran');
 		$sifat_surat= $this->input->post('sifat_surat');
 		$penjabat_disposisi= $this->input->post('penjabat_disposisi');
-		$disposisi= $this->input->post('disposisi');
+		$disposisi= implode(', ' , $this->input->post('disposisi'));
 		$asli_copy = $this->input->post('asli_copy');
 		$informasi_disposisi = $this->input->post('informasi_disposisi');
 		$object = array(
