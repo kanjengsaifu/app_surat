@@ -1,3 +1,4 @@
+
 <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -21,12 +22,22 @@
                 <div class="box-header">
                   <h3 class="box-title">
                   	<a href="<?php echo base_url(); ?>admin/tambah_surat_keluar" class="btn btn-sm btn-primary btn-flat"><i class="fa fa-edit"></i> Tambah</a>
-                  </h3>
+                    <button class="btn btn-sm btn-light btn-flat" title="view" data-toggle="modal" data-target="#lihatlaporan2"><i class="fa fa-eye"></i> Lihat Data</button>
+                    <button class="btn btn-sm btn-success btn-flat" title="view" data-toggle="modal" data-target="#lihatlaporan2"><i class="fa fa-print"></i>Print Data</button>
+                     
+            
+            <!-- bagian print -->
+                     <!--  <a href="./admin/print_surat_keluar.php?surat_id=<? ?>" target="_blank"><button class="btn btn-sm btn-warning btn-flat"><i class="fa fa-print"></i> Cetak Data Surat Keluar </button></a> -->
+                     
+
+
+                     </h3>
                   
                 </div><!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
                 
-                  <table id="example1" class="table table-bordered table-hover dataTable">
+
+                  <table id="example1" class="table table-bordered table-hover dataTable" >
                     <thead>
                       <tr>
                         <th>No</th>
@@ -46,20 +57,20 @@
                       	foreach ($data as $lihat):
                       	?>
                     	<tr>
-                        <td><?php echo $no++ ?></td>
-                    	<td><?php echo $lihat->no_agenda?></td>
-                        <td><?php echo tgl_indo($lihat->tgl_surat) ?></td> 
-                    	<td><?php echo ucwords($lihat->kode_arsip) ?></td> 
-                      <td><?php echo ucwords($lihat->no_surat) ?></td> 
-                      <td><?php echo ucfirst($lihat->tujuan) ?></td> 
-                      <td><?php echo ucfirst($lihat->perihal) ?></td>  
-                      <td><?php echo ucwords($lihat->asli_copy) ?></td>  
-                      <td><?php echo ucwords($lihat->keterangan) ?></td>  
+                      <td><?php echo $no++ ?></td>
+                    	<td><div style="width: 100px;"><?php echo $lihat->no_agenda?></td>
+                      <td>  <div style="width: 150px;"> <?php echo tgl_indo($lihat->tgl_surat) ?></td> </div>
+                    	<td><div style="width: 100px;"><?php echo ucwords($lihat->kode_arsip) ?></td> 
+                      <td><div style="width: 150px;"><?php echo ucwords($lihat->no_surat) ?></td> 
+                      <td> <div style="width: 100px;">  <?php echo ucfirst($lihat->tujuan) ?></td> 
+                      <td> <div style="width: 400px;"><?php echo ucfirst($lihat->perihal) ?></td> </div>
+                      <td><div style="width: 150px;"><?php echo ucwords($lihat->asli_copy) ?></td>  
+                      <td> <div style="width: 350px;"> <?php echo ucwords($lihat->keterangan) ?></td>  </div>
                         <td  align="center">
-                          <div class="btn-group" role="group" style="width: 350px;">
+                          <div class="btn-group" role="group" style="width: 200px;">
                             <a href="<?php echo base_url(); ?>admin/edit_surat_keluar/<?php echo $lihat->surat_id ?>" class="btn btn-sm btn-primary btn-flat"><i class="fa fa-edit"></i> Edit</a>
                             <a href="<?php echo base_url(); ?>admin/hapus_surat_keluar/<?php echo $lihat->surat_id ?>" onclick="javascript: return confirm('Anda yakin akan menghapus data ini ?')" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-trash"></i> Hapus</a>
-                           
+                            
                         </td>                  		
                     	</tr>
                     	<?php endforeach ?>
@@ -75,3 +86,92 @@
 
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
+
+
+<?php
+// konfigurasi database
+$host       =   "localhost";
+$user       =   "root";
+$password   =   "";
+$database   =   "demo_surat";
+// perintah php untuk akses ke database
+$koneksi = mysqli_connect($host, $user, $password, $database);
+?>
+ 
+
+<?php
+$query = mysqli_query($koneksi,"SELECT * FROM tb_jenis_surat ORDER BY surat_id DESC");
+?>
+
+
+
+<style>
+  th, tr, td{
+     border: 3px solid;
+     text-align: left;
+     padding: 5px;
+} </style>
+
+
+ <div id="lihatlaporan2" class="modal fade" role="dialog">
+     <div class="modal-dialog" style="width: 80%">
+                 <!-- Modal content-->
+       <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+           </div> 
+               <div class="modal-body" > 
+                 <div class="row">
+                   <div class="col-lg-12" style="padding-left: 10%; padding-right: 10%">
+                     <div class="row">
+                       <div class="col-sm-2" style="text-align: center;">
+                         <img src="http://4.bp.blogspot.com/-LqUyMLMG05w/Ty0S-w100jI/AAAAAAAABC0/2AmjPy4Br1s/s1600/logo_BMKG.png" style="width: 60%; height: auto;">
+                       </div>
+                          <div class="col-sm-10" style="text-align: center;">
+                            BADAN METEOROLOGI KLIMATOLOGI DAN GEOFISIKA <br>
+                            <strong style="font-size: 150%">STASIUN KLIMATOLOGI MLATI YOGYAKARTA</strong><br>
+                            Jl. Kabupaten Km. 5,5 Duwet Sendangadi, Mlati, Sleman, D.I. Yogyakarta<br>
+                            Telp : (0274) 2880152 ; Fax: (0247) 2880151 ; email: staklim.yogya@gmail.com
+                            <br><br>
+                          </div>
+                        </div>
+                        <div class="row" style="background-color: black; height: 4px;"></div> <br> <br>
+                        
+<form action="" method="post">
+    <table table style="font-family: arial, sans-serif; border-collapse: collapse; width: 100%;">
+        <tr >
+           <th style="background-color: yellow; text-align: center;" > No  </th>
+           <th style="background-color: yellow; text-align: center;" > No Agenda  </th>
+           <th style="background-color: yellow; text-align: center;"> Tanggal Surat </th>
+           <th style="background-color: yellow; text-align: center;"> Kode Arsip </th>
+           <th style="background-color: yellow; text-align: center;"> No Surat </th>
+           <th style="background-color: yellow; text-align: center;"> Tujuan </th>
+           <th style="background-color: yellow; text-align: center;">Perihal  </th>
+        </tr>
+
+  <?php 
+
+    $data = mysqli_query($koneksi, "SELECT * from tb_surat_keluar");
+    $no=1;
+    foreach ($data as $lihat){
+        echo "<tr>
+           <td > ".$lihat['surat_id']."</td>
+           <td width=30px>".$lihat['no_agenda']."</td>
+           <td > ".tgl_indo($lihat['tgl_surat'])."  </td>
+           <td > ".$lihat['kode_arsip']."  </td>
+           <td >".$lihat['no_surat']."</td> 
+           <td >".$lihat['tujuan']." </td> 
+           <td > ".$lihat['perihal']."  </td>
+         </tr> " ;
+        $no++;
+    }
+    ?>
+    </table>
+</form>
+       </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+</div>

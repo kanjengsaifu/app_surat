@@ -93,6 +93,9 @@
         <!-- /.sidebar -->
       </aside>
 
+
+
+
       <?php $this->load->view('admin/'.$page); ?>
     </div><!-- ./wrapper -->
 
@@ -134,3 +137,6 @@
     <script src="<?php echo base_url(); ?>assets/dist/js/demo.js"></script>
   </body>
 </html>
+
+
+ 

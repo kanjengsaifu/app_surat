@@ -65,4 +65,9 @@ class Model_admin extends CI_Model {
 	{
 		return $this->db->delete('login', array('id_user' => $id));
 	}
+
+	public function getWhere($table, $where){//where pake array
+		$query = $this->db->get_where($table, $where);
+		return $query->result();
+	}
 }

@@ -21,6 +21,13 @@
                 <div class="box-header">
                   <h3 class="box-title">
                   	<a href="<?php echo base_url(); ?>admin/tambah_jenis" class="btn btn-sm btn-primary btn-flat" data-target = "#example1"><i class="fa fa-plus"></i> Tambah</a>
+                     <button class="btn btn-sm btn-light btn-flat" title="view" data-toggle="modal" data-target="#lihatlaporan2"><i class="fa fa-eye"></i> Lihat Data</button>
+                     <button class="btn btn-sm btn-success btn-flat" title="view" data-toggle="modal" data-target="#lihatlaporan2"><i class="fa fa-print"></i>Print Data</button>
+                     
+                <!-- bagian print -->
+                     <!-- <a href="./admin/print_surat_masuk.php?surat_id=<? ?>" target="_blank"><button class="btn btn-sm btn-danger btn-flat"><i class="fa fa-print"></i> Cetak Data Surat Masuk </button></a> -->
+
+
                   </h3>
                  <!--  <div class="box-tools">
                   	
@@ -53,6 +60,7 @@
                         <th>Surat Asli/copy</th>
                         <th>Informasi Disposisi</th>
                         <th>Aksi</th> 
+                      
                      </tr>
                     </thead>
 
@@ -65,28 +73,59 @@
                     	<tr>
 
                         <td><?php echo $no++ ?></td>
-                    		<td><?php echo $lihat->no_agenda?></td>
-                        <td><?php echo ($lihat->tgl_terima) ?></td> 
-                        <td><?php echo ucwords($lihat->kode_arsip) ?></td> 
-                        <td><?php echo ucwords($lihat->no_surat) ?></td>
-                        <td><?php echo ($lihat->tgl_surat) ?></td> 
-                        <td><?php echo ucfirst($lihat->pengirim) ?></td> 
-                        <td><?php echo ucfirst($lihat->perihal) ?></td>  
-                        <td><?php echo ucfirst($lihat->lampiran) ?></td> 
-                        <td><?php echo ucfirst($lihat->sifat_surat) ?></td> 
-                        <td><?php echo ucfirst($lihat->penjabat_disposisi) ?></td> 
-                        <td><?php echo ucfirst($lihat->disposisi) ?></td> 
-                        <td><?php echo ucwords($lihat->asli_copy) ?></td>  
-                        <td><?php echo ucwords($lihat->informasi_disposisi) ?></td>  
+                    		<td> <div style="width: 100px;"><?php echo $lihat->no_agenda?></td>
+                        <td>  <div style="width: 150px;"> <?php echo tgl_indo($lihat->tgl_terima) ?></td> </div>
+                        <td> <div style="width: 100px;"><?php echo ucwords($lihat->kode_arsip) ?></td> 
+                        <td>  <div style="width: 200px;"> <?php echo ucwords($lihat->no_surat) ?></td>
+                        <td>  <div style="width: 150px;"> <?php echo tgl_indo($lihat->tgl_surat) ?></td> </div>
+                        <td> <div style="width: 100px;"><?php echo ucfirst($lihat->pengirim) ?></td> 
+                        <td> <div style="width: 400px;"> <?php echo ucfirst($lihat->perihal) ?></td>  </div>
+                        <td> <div style="width: 100px;"><?php echo ucfirst($lihat->lampiran) ?></td> 
+                        <td> <div style="width: 100px;"><?php echo ucfirst($lihat->sifat_surat) ?></td> 
+                        <td> <div style="width: 200px;"><?php echo ucfirst($lihat->penjabat_disposisi) ?></td> 
+                        <td> <i>(ceklis manual)</i> </td> </div>
+                        <td> <div style="width: 130px;"><?php echo ucwords($lihat->asli_copy) ?></td>  
+                        <td> <div style="width: 350px;"> <?php echo ucwords($lihat->informasi_disposisi) ?></td> </div>  
                         <td align="center">
                           <div class="btn-group" role="group" style="width: 350px;">
-                            <a href="<?php echo base_url(); ?>admin/edit_jenis/<?php echo $lihat->surat_id ?>" class="btn btn-sm btn-primary btn-flat"><i class="fa fa-edit"></i> Edit</a>
+                            <a href="<?php echo base_url(); ?>admin/edit_jenis/<?php echo $lihat->surat_id ?>" class="btn btn-sm btn-success btn-flat"><i class="fa fa-edit"></i> Edit</a>
                             <a href="<?php echo base_url(); ?>admin/hapus_jenis/<?php echo $lihat->surat_id ?>" onclick="javascript: return confirm('Anda yakin akan menghapus data ini ?')" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-trash"></i> Hapus</a>
-                            <button class="btn btn-sm btn-primary btn-flat" title="view" data-toggle="modal" data-target="#lihatlaporan<?php echo $lihat->surat_id ?>"><i class="fa fa-eye"></i> Lihat</button>
-                            <a href="<?php echo base_url(); ?>admin/hapus_jenis/<?php echo $lihat->surat_id ?>" onclick="javascript: return confirm('Anda yakin akan menghapus data ini ?')" class="btn btn-sm btn-success btn-flat"><i class="fa fa-print"></i> print disposisi</a>
-                          
+                            <button class="btn btn-sm btn-primary btn-flat" title="view" data-toggle="modal" data-target="#lihatlaporan<?php echo $lihat->surat_id ?>"><i class="fa fa-eye"></i> Lihat Disposisi </button>
+                            <a href="print?surat_id=<?php  echo $lihat->surat_id; ?>" target="_blank">
+                                <button class="btn btn-default small glyphicon glyphicon-print" id="btn-print"> Print</button></a>
+                            <!--   <br> <br>
+                             <td>  <form action="upload.php" method="post" enctype="multipart/form-data">
+                                  Pilih file: <input type="file" name="berkas" />
+                                    <input type="submit" name="upload" value="upload" />
+                              </form>   
+                              <td> -->
 
-                          <!-- modal lihat laporan -->
+                             <!--  <?php
+
+                                  // // ambil data file
+                                  // $namaFile = $_FILES['berkas']['name'];
+                                  // $namaSementara = $_FILES['berkas']['tmp_name'];
+
+                                  // // tentukan lokasi file akan dipindahkan
+                                  // $dirUpload = "terupload/";
+
+                                  // // pindahkan file
+                                  // $terupload = move_uploaded_file($namaSementara, $dirUpload.$namaFile);
+
+                                  // if ($terupload) {
+                                  //     echo "Upload berhasil!<br/>";
+                                  //     echo "Link: <a href='".$dirUpload.$namaFile."'>".$namaFile."</a>";
+                                  // } else {
+                                  //     echo "Upload Gagal!";
+                                  // }
+
+                                  ?> -->
+                                                <!-- print disposisi -->
+                            <!-- <a href="./print/print_disposisi.php?surat_id=<?=$lihat->surat_id; ?>" target="_blank"><button class="btn btn-sm btn-warning btn-flat"><i class="fa fa-print"></i> Cetak Disposisi </button></a> -->
+
+                            
+
+<!-- modal lihat laporan -->
                     <div id="printThis<?php echo $lihat->surat_id; ?>">
               <div id="lihatlaporan<?php echo $lihat->surat_id; ?>" class="modal fade" role="dialog">
                 <div class="modal-dialog" style="width: 80%">
@@ -134,8 +173,8 @@
                           <br>
                           <style>
 
-                              td{
-                                border: 1px solid #dddddd;
+                              th, tr, td{
+                                border: 3px solid;
                                 text-align: left;
                                 padding: 5px;
                               }
@@ -146,45 +185,89 @@
 
                          <table style="font-family: arial, sans-serif; border-collapse: collapse; width: 100%;">
                           <tr >
-                            <td> Surat Dari </td>
+                            <th> Surat Dari </th>
                             <td><?php echo $lihat->pengirim; ?> </td> 
-                            <td> Diterima Tanggal </td>
-                            <td> <?php echo $lihat->tgl_terima; ?>   </td>
+                            <th> Diterima Tanggal </th>
+                            <td> <?php echo tgl_indo($lihat->tgl_terima); ?>   </td>
                           </tr>
 
                            <tr>
-                            <td>No Surat </td>
+                            <th>No Surat </th>
                             <td><?php echo $lihat->no_surat; ?> </td> 
-                            <td> No Agenda  </td>
+                            <th> No Agenda  </th>
                             <td> <?php echo $lihat->no_agenda; ?>   </td>
                           </tr>
 
                            <tr>
-                            <td>Tanggal Surat </td>
-                            <td><?php echo $lihat->tgl_surat; ?> </td> 
-                            <td> Diteruskan Kepada   </td>
+                            <th>Tanggal Surat </th>
+                            <td><?php echo tgl_indo($lihat->tgl_surat); ?> </td> 
+                            <th> Diteruskan Kepada   </th>
                             <td> <?php echo $lihat->penjabat_disposisi ?>   </td>
                           </tr>
 
                            <tr>
-                            <td>Lampiran </td>
+                            <th>Lampiran </th>
                             <td><?php echo $lihat->lampiran; ?> </td> 
-                            <td>Sifat Surat </td>
+                            <th>Sifat Surat </th>
                             <td><?php echo $lihat->sifat_surat; ?> </td> 
                           </tr>
 
+                          <tr>
+                              <th >Perihal : </th> 
+                              <td colspan="3" ><?php echo $lihat->perihal; ?></td> 
+                          </tr>  
+
+                          <tr>
+                              <th colspan="4">Diserahkan Kepada : </th> 
+                          </tr>
+                           
+
+                            <tr>
+                              <td height="50" colspan="4"  align=left valign=top> 
+                                  <input style="width:30px" type="checkbox" value="Tata Usaha" name="disposisi[]" >Tata Usaha
+                                  <input style="margin-left:200px; width:30px" type="checkbox" value="Kapok Datin" name="disposisi[]"  >Kapok Datin
+                                  <input style="margin-left:150px ; width:30px" type="checkbox" value="Kapok Obs" name="disposisi[]" >Kapok Obs <br> <br>
+                                  <input style="width:30px" type="checkbox" value="Kapok Forcaster" name="disposisi[]">Kapok Forcaster
+                                  <input style="margin-left:169px; width:30px"type="checkbox" value="Kapok Teknisi" name="disposisi[]" >Kapok Teknisi
+                                  <input style="margin-left: 139px ; width:30px" type="checkbox" value="PPK" name="disposisi[]" >PPK <br> <br>
+                                  <input style="width:30px" type="checkbox" value="Bendahara Penerimaan" name="disposisi[]" >Bendahara Penerimaan
+                                  <input style="margin-left:123px; width:30px" type="checkbox" value="Bendahara Pengeluaran" name="disposisi[]" >Bendahara Pengeluaran
+                                  <input style="margin-left:75px; width:30px" type="checkbox" value="Pejabat ULP" name="disposisi[]" >Pejabat ULP <br> <br>
+                                  <input style="width:30px" type="checkbox" value="PPABP" name="disposisi[]">PPABP
+                                  <input style="margin-left:225px; width:30px" type="checkbox" value="Petugas SAIBA" name="disposisi[]" >Petugas SAIBA
+                                  <input style="margin-left:130px; width:30px" type="checkbox" value="Petugas BMN" name="disposisi[]" >Petugas BMN
+                              </td>
+                            </tr>
+
+                            <br>
+
+
+                         
+                           <tr>
+                              <th colspan="4">Disposisi: </th> 
+
+                          </tr>
+
+                          <tr>
+
+                              <td height="300" colspan="4" align=left valign=top><?php echo $lihat->informasi_disposisi; ?></td> 
+
+                          </tr>  
+                          
+
                           </table> <br>
 
-                          Diserahkan Kepada :<br><span class="margin-left: 10 px;"> </span>
+
+                      <!--     Diserahkan Kepada :<br><span class="margin-left: 10 px; width: 100%;"> </span>
                           <textarea style="background-color: white" readonly class="form-control" rows = "5"><?php echo $lihat->disposisi; ?></textarea> <br>
 
-                           Perihal :<br><span class="margin-left: 10 px;"> </span>
+                           Perihal :<br><span class="margin-left: 10 px; width: 100%;"> </span>
                           <textarea style="background-color: white" readonly class="form-control" rows = "5"><?php echo $lihat->perihal; ?></textarea> <br>
                            
-                           Disposisi :<br><span class="margin-left: 10 px;"> </span>
+                           Disposisi :<br><span class="margin-left: 10 px; width: 100%; heigth: 100%"> </span>
                           <textarea style="background-color: white" readonly class="form-control" rows = "5"><?php echo $lihat->informasi_disposisi; ?> </textarea> 
 
-                                 
+                                  -->
                           </div>
                         </div>
                       </div>
@@ -195,7 +278,9 @@
             </div>
           </div>
 
-                        </td>                  		
+        
+
+                  </td>                  		
                     	</tr>
                     	 <?php endforeach; ?>
                     </tbody>
@@ -207,5 +292,89 @@
           </div>
          </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
+
+
+
+<?php
+// konfigurasi database
+$host       =   "localhost";
+$user       =   "root";
+$password   =   "";
+$database   =   "demo_surat";
+// perintah php untuk akses ke database
+$koneksi = mysqli_connect($host, $user, $password, $database);
+?>
+ 
+
+<?php
+$query = mysqli_query($koneksi,"SELECT * FROM tb_jenis_surat ORDER BY surat_id DESC");
+?>
+ <div id="lihatlaporan2" class="modal fade" role="dialog">
+     <div class="modal-dialog" style="width: 80%">
+                 <!-- Modal content-->
+       <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+           </div> 
+               <div class="modal-body" > 
+                 <div class="row">
+                   <div class="col-lg-12" style="padding-left: 10%; padding-right: 10%">
+                     <div class="row">
+                       <div class="col-sm-2" style="text-align: center;">
+                         <img src="http://4.bp.blogspot.com/-LqUyMLMG05w/Ty0S-w100jI/AAAAAAAABC0/2AmjPy4Br1s/s1600/logo_BMKG.png" style="width: 60%; height: auto;">
+                       </div>
+                          <div class="col-sm-10" style="text-align: center;">
+                            BADAN METEOROLOGI KLIMATOLOGI DAN GEOFISIKA <br>
+                            <strong style="font-size: 150%">STASIUN KLIMATOLOGI MLATI YOGYAKARTA</strong><br>
+                            Jl. Kabupaten Km. 5,5 Duwet Sendangadi, Mlati, Sleman, D.I. Yogyakarta<br>
+                            Telp : (0274) 2880152 ; Fax: (0247) 2880151 ; email: staklim.yogya@gmail.com
+                            <br><br>
+                          </div>
+                        </div>
+                        <div class="row" style="background-color: black; height: 4px;"></div> <br> <br>
+                        
+<form action="" method="post">
+    <table table style="font-family: arial, sans-serif; border-collapse: collapse; width: 100%;">
+        
+
+        <tr >
+           <th style="background-color: yellow; text-align: center;" > No  </th>
+           <th style="background-color: yellow; text-align: center;" > No Agenda  </th>
+           <th style="background-color: #ADFF2F; text-align: center;"> Tanggal Diterima </th>
+           <th style="background-color: yellow; text-align: center;"> Kode Arsip </th>
+           <th style="background-color: #ADFF2F; text-align: center;"> No Surat </th>
+           <th style="background-color: yellow; text-align: center;"> Tanggal Surat </th>
+           <th style="background-color: #ADFF2F; text-align: center;"> Pengirim </th>
+           <th style="background-color: yellow; text-align: center;">Perihal  </th>
+        </tr>
+
+  <?php 
+
+    $data = mysqli_query($koneksi, "SELECT * from tb_jenis_surat");
+    $no=1;
+    foreach ($data as $lihat){
+        echo "<tr>
+           <td > ".$lihat['surat_id']."</td>
+           <td > ".$lihat['no_agenda']."</td>
+           <td> ".tgl_indo($lihat['tgl_terima'])." </td>
+           <td > ".$lihat['kode_arsip']." </td>
+           <td >".$lihat['no_surat']."</td> 
+           <td> ".tgl_indo($lihat['tgl_surat'])."  </td>
+           <td>".$lihat['pengirim']." </td> 
+           <td > ".$lihat['perihal']."  </td>
+         </tr> " ;
+        $no++;
+    }
+    ?>
+    </table>
+</form>
+       </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+</div>
+
 
 

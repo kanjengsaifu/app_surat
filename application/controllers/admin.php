@@ -48,7 +48,7 @@ class Admin extends CI_Controller {
 		$lampiran= $this->input->post('lampiran');
 		$sifat_surat= $this->input->post('sifat_surat');
 		$penjabat_disposisi= $this->input->post('penjabat_disposisi');
-		$disposisi= implode(', ' , $this->input->post('disposisi'));
+		$disposisi= $this->input->post('disposisi');
 		$asli_copy = $this->input->post('asli_copy');
 		$informasi_disposisi = $this->input->post('informasi_disposisi');
 
@@ -92,7 +92,7 @@ class Admin extends CI_Controller {
 		$lampiran= $this->input->post('lampiran');
 		$sifat_surat= $this->input->post('sifat_surat');
 		$penjabat_disposisi= $this->input->post('penjabat_disposisi');
-		$disposisi= implode(', ' , $this->input->post('disposisi'));
+		$disposisi= $this->input->post('disposisi');
 		$asli_copy = $this->input->post('asli_copy');
 		$informasi_disposisi = $this->input->post('informasi_disposisi');
 		$object = array(
@@ -272,6 +272,16 @@ class Admin extends CI_Controller {
 		redirect('admin/manage_user','refresh');
 	}	
 
+
+	function print(){
+		if($this->input->get('surat_id')){
+			$id = $this->input->get('surat_id');
+			$data['data'] = $this->model_admin->getWhere('tb_jenis_surat', array('surat_id' => $id));
+
+			$this->load->view('admin/print_disposisi', $data);
+		}
+		
+	}
 
 }
 
