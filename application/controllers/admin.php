@@ -373,6 +373,7 @@ class Admin extends CI_Controller {
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
         $this->load->view('admin/tambah_disposisi');
+        
     }
     // public function edit($id = null)
     // {

@@ -63,8 +63,9 @@
                         <td  align="center">
                           <div class="btn-group" role="group" style="width: 200px;">
                           
-                          <a onclick="deleteConfirm('<?php echo site_url('admin/delete/'.$lihat->id_gambar) ?>')"
-                              href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                              
+                      <a href="<?php echo base_url(); ?>admin/delete/<?php echo $lihat->id_gambar ?>" onclick="javascript: return confirm('Anda yakin akan menghapus data ini ?')" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-trash"></i> Hapus</a>
+                     
                         </td>                     
                       </tr>
                       <?php endforeach ?>

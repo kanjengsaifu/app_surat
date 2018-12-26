@@ -48,6 +48,7 @@ class Image_model extends CI_Model
         $this->gambar = $this->_uploadImage();
         $this->surat_id = "1";
         $this->db->insert($this->_table, $this);
+        redirect('admin/disposisi');
     }
 
 
