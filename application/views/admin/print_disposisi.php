@@ -1,6 +1,9 @@
+
+
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 
 <script>
 $(document).ready(function(){
@@ -8,38 +11,31 @@ $(document).ready(function(){
   });
 </script>
 
-  
-  <?php  foreach ($data as $lihat): ?>
- 
 
-<!-- modal lihat laporan -->
-                    <div id="printThis<?php echo $lihat->surat_id; ?>">
-              <div id="lihatlaporan<?php echo $lihat->surat_id; ?>" class="modal fade" role="dialog">
-                <div class="modal-dialog" style="width: 80%">
-                 <!-- Modal content-->
-                 <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      </div> 
+  <?php  foreach ($data as $lihat): ?>
 
  <!-- lihat laporan --> 
                
-                  <div class="modal-body" > 
+                 
+              <div class="modal-body" > 
                     <div class="row">
-                      <div class="col-lg-12" style="padding-left: 10%; padding-right: 10%">
+                      <div class="col-lg-12" style="padding-left: 5%; padding-right: 5%">
                         <div class="row">
-                          <div class="col-sm-2" style="text-align: center;">
-                            <img src="http://4.bp.blogspot.com/-LqUyMLMG05w/Ty0S-w100jI/AAAAAAAABC0/2AmjPy4Br1s/s1600/logo_BMKG.png" style="width: 60%; height: auto;">
-                          </div>
+                          <div class="col-lg-2 col-sm-2 col-md-2 col-xs-2 col-xl-2" style="text-align: center;">
+                      <img src="<?php echo base_url() ?>logo_BMKG.png "
+                            style="width: 80%; height: auto;">
+                      </div>
+                      
                           <div class="col-sm-10" style="text-align: center;">
                             BADAN METEOROLOGI KLIMATOLOGI DAN GEOFISIKA <br>
                             <strong style="font-size: 150%">STASIUN KLIMATOLOGI MLATI YOGYAKARTA</strong><br>
                             Jl. Kabupaten Km. 5,5 Duwet Sendangadi, Mlati, Sleman, D.I. Yogyakarta<br>
                             Telp : (0274) 2880152 ; Fax: (0247) 2880151 ; email: staklim.yogya@gmail.com
-                            <br><br>
+                            <br>
+                            <hr width="100%" noshade style="border-top: 2px solid #000;">
                           </div>
-                        </div>
-                        <div class="row" style="background-color: black; height: 4px;"></div> <br> <br>
+                        </div> <br>
+
 
                          <div>
                           <table style="border: 3px solid; font-family: arial, sans-serif; border-collapse: collapse;" align="right">
@@ -75,7 +71,7 @@ $(document).ready(function(){
                             <th> Surat Dari </th>
                             <td><?php echo $lihat->pengirim; ?> </td> 
                             <th> Diterima Tanggal </th>
-                            <td> <?php echo $lihat->tgl_terima; ?>   </td>
+                            <td> <?php echo tgl_indo($lihat->tgl_terima); ?>   </td>
                           </tr>
 
                            <tr>
@@ -87,7 +83,7 @@ $(document).ready(function(){
 
                            <tr>
                             <th>Tanggal Surat </th>
-                            <td><?php echo $lihat->tgl_surat; ?> </td> 
+                            <td><?php echo tgl_indo($lihat->tgl_surat); ?></td> 
                             <th> Diteruskan Kepada   </th>
                             <td> <?php echo $lihat->penjabat_disposisi ?>   </td>
                           </tr>
@@ -107,32 +103,39 @@ $(document).ready(function(){
                           <tr>
                               <th colspan="4">Diserahkan Kepada : </th> 
                           </tr>
+                          
                           <tr>
-                              <td height="50" colspan="4"  align=left valign=top><?php echo $lihat->disposisi; ?></td> 
-                          </tr>  
+                              <td height="50" colspan="4"  align=left valign=top> 
+                                  <input style="width:30px" type="checkbox" value="Tata Usaha" name="disposisi[]" >Tata Usaha
+                                  <input style="margin-left:130px; width:30px" type="checkbox" value="Kapok Datin" name="disposisi[]"  >Kapok Datin
+                                  <input style="margin-left:100px ; width:30px" type="checkbox" value="Kapok Obs" name="disposisi[]" >Kapok Obs <br> <br>
 
+                                  <input style="width:30px" type="checkbox" value="Kapok Forcaster" name="disposisi[]">Kapok Forcaster
+                                  <input style="margin-left:94px; width:30px"type="checkbox" value="Kapok Teknisi" name="disposisi[]" >Kapok Teknisi
+                                  <input style="margin-left: 89px ; width:30px" type="checkbox" value="PPK" name="disposisi[]" >PPK <br> <br>
+
+                                  <input style="width:30px" type="checkbox" value="Bendahara Penerimaan" name="disposisi[]" >Bendahara Penerimaan
+                                  <input style="margin-left:42px; width:30px" type="checkbox" value="Bendahara Pengeluaran" name="disposisi[]" >Bendahara Pengeluaran
+                                  <input style="margin-left:14px; width:30px" type="checkbox" value="Pejabat ULP" name="disposisi[]" >Pejabat ULP <br> <br>
+
+                                  <input style="width:30px" type="checkbox" value="PPABP" name="disposisi[]">PPABP
+                                  <input style="margin-left:158px; width:30px" type="checkbox" value="Petugas SAIBA" name="disposisi[]" >Petugas SAIBA
+                                  <input style="margin-left:79px; width:30px" type="checkbox" value="Petugas BMN" name="disposisi[]" >Petugas BMN
+                              </td>
+                            </tr>
                          
                            <tr>
                               <th colspan="4">Disposisi: </th> 
                           </tr>
+
                           <tr>
-                              <td height="300" colspan="4" align=left valign=top><?php echo $lihat->informasi_disposisi; ?></td> 
+                              <td height="150" colspan="4" align=left valign=top><?php echo $lihat->informasi_disposisi; ?></td> 
 
                           </tr>  
                           
 
                           </table> <br>
 
-                      <!--     Diserahkan Kepada :<br><span class="margin-left: 10 px; width: 100%;"> </span>
-                          <textarea style="background-color: white" readonly class="form-control" rows = "5"><?php echo $lihat->disposisi; ?></textarea> <br>
-
-                           Perihal :<br><span class="margin-left: 10 px; width: 100%;"> </span>
-                          <textarea style="background-color: white" readonly class="form-control" rows = "5"><?php echo $lihat->perihal; ?></textarea> <br>
-                           
-                           Disposisi :<br><span class="margin-left: 10 px; width: 100%; heigth: 100%"> </span>
-                          <textarea style="background-color: white" readonly class="form-control" rows = "5"><?php echo $lihat->informasi_disposisi; ?> </textarea> 
-
-                                  -->
                           </div>
                         </div>
                       </div>
@@ -142,6 +145,6 @@ $(document).ready(function(){
               </div>
             </div>
           </div>
-
+      </div>
 
 <?php endforeach; ?>

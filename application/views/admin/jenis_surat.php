@@ -22,8 +22,8 @@
                   <h3 class="box-title">
                   	<a href="<?php echo base_url(); ?>admin/tambah_jenis" class="btn btn-sm btn-primary btn-flat" data-target = "#example1"><i class="fa fa-plus"></i> Tambah</a>
                      <button class="btn btn-sm btn-light btn-flat" title="view" data-toggle="modal" data-target="#lihatlaporan2"><i class="fa fa-eye"></i> Lihat Data</button>
-                     <button class="btn btn-sm btn-success btn-flat" title="view" data-toggle="modal" data-target="#lihatlaporan2"><i class="fa fa-print"></i>Print Data</button>
-                     
+                     <a href="print_surat_masuk" target="_blank">
+                                <button class="btn btn-sm btn-danger btn-flat" ><i class="fa fa-print"></i> Print</button></a>
                 <!-- bagian print -->
                      <!-- <a href="./admin/print_surat_masuk.php?surat_id=<? ?>" target="_blank"><button class="btn btn-sm btn-danger btn-flat"><i class="fa fa-print"></i> Cetak Data Surat Masuk </button></a> -->
 
@@ -91,8 +91,10 @@
                             <a href="<?php echo base_url(); ?>admin/edit_jenis/<?php echo $lihat->surat_id ?>" class="btn btn-sm btn-success btn-flat"><i class="fa fa-edit"></i> Edit</a>
                             <a href="<?php echo base_url(); ?>admin/hapus_jenis/<?php echo $lihat->surat_id ?>" onclick="javascript: return confirm('Anda yakin akan menghapus data ini ?')" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-trash"></i> Hapus</a>
                             <button class="btn btn-sm btn-primary btn-flat" title="view" data-toggle="modal" data-target="#lihatlaporan<?php echo $lihat->surat_id ?>"><i class="fa fa-eye"></i> Lihat Disposisi </button>
-                            <a href="print?surat_id=<?php  echo $lihat->surat_id; ?>" target="_blank">
-                                <button class="btn btn-default small glyphicon glyphicon-print" id="btn-print"> Print</button></a>
+                            <a href="print_disposisi?surat_id=<?php  echo $lihat->surat_id; ?>" target="_blank">
+                                <button class="btn btn-sm btn-light btn-flat" ><i class="fa fa-print"></i> Print</button></a>
+
+                                
                             <!--   <br> <br>
                              <td>  <form action="upload.php" method="post" enctype="multipart/form-data">
                                   Pilih file: <input type="file" name="berkas" />
@@ -125,7 +127,7 @@
 
                             
 
-<!-- modal lihat laporan -->
+<!-- modal lihat disposisi -->
                     <div id="printThis<?php echo $lihat->surat_id; ?>">
               <div id="lihatlaporan<?php echo $lihat->surat_id; ?>" class="modal fade" role="dialog">
                 <div class="modal-dialog" style="width: 80%">
@@ -135,14 +137,14 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                       </div> 
 
- <!-- lihat laporan --> 
+ <!-- lihat disposisi --> 
                
                   <div class="modal-body" > 
                     <div class="row">
                       <div class="col-lg-12" style="padding-left: 10%; padding-right: 10%">
                         <div class="row">
                           <div class="col-sm-2" style="text-align: center;">
-                            <img src="http://4.bp.blogspot.com/-LqUyMLMG05w/Ty0S-w100jI/AAAAAAAABC0/2AmjPy4Br1s/s1600/logo_BMKG.png" style="width: 60%; height: auto;">
+                            <img src="<?php echo base_url() ?>logo_BMKG.png" style="width: 60%; height: auto;">
                           </div>
                           <div class="col-sm-10" style="text-align: center;">
                             BADAN METEOROLOGI KLIMATOLOGI DAN GEOFISIKA <br>
@@ -321,7 +323,7 @@ $query = mysqli_query($koneksi,"SELECT * FROM tb_jenis_surat ORDER BY surat_id D
                    <div class="col-lg-12" style="padding-left: 10%; padding-right: 10%">
                      <div class="row">
                        <div class="col-sm-2" style="text-align: center;">
-                         <img src="http://4.bp.blogspot.com/-LqUyMLMG05w/Ty0S-w100jI/AAAAAAAABC0/2AmjPy4Br1s/s1600/logo_BMKG.png" style="width: 60%; height: auto;">
+                         <img src="<?php echo base_url() ?>logo_BMKG.png" style="width: 60%; height: auto;">
                        </div>
                           <div class="col-sm-10" style="text-align: center;">
                             BADAN METEOROLOGI KLIMATOLOGI DAN GEOFISIKA <br>

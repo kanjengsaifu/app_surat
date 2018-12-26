@@ -6,6 +6,9 @@ class Admin extends CI_Controller {
 		parent::__construct();
 		// $this->load->helper(array('url','form'));
 		// $this->load->model('model_admin');
+		 $this->load->model('model_admin');
+		 $this->load->model('image_model');
+		 $this->load->library('form_validation');
 	}
 
 	function index(){
@@ -15,12 +18,22 @@ class Admin extends CI_Controller {
 
 		$a['jenis']	= $this->model_admin->tampil_jenis()->num_rows(); //untuk ambil data dari file model_admin.php dengan function tampil_jenis
 		$a['surat_keluar']	= $this->model_admin->tampil_surat_keluar()->num_rows();
-
+		
 		$a['manage_user']	= $this->model_admin->tampil_manage_user()->num_rows();
+		$a['disposisi']	= $this->image_model->tampil_disposisi()->num_rows();
+
 		$a['page']	= "home";
 		
 		$this->load->view('admin/index', $a);
 	}	
+
+	function disposisi(){
+		$a['data']	= $this->image_model->tampil_disposisi()->result_object();
+		$a['page']	= 'disposisi';
+	    $a['gambar'] = $this->image_model->getAll();
+		
+		$this->load->view('admin/index', $a);
+	}
 
 	/* Fungsi Jenis Surat */
 	function jenis_surat(){
@@ -273,7 +286,7 @@ class Admin extends CI_Controller {
 	}	
 
 
-	function print(){
+	function print_disposisi(){
 		if($this->input->get('surat_id')){
 			$id = $this->input->get('surat_id');
 			$data['data'] = $this->model_admin->getWhere('tb_jenis_surat', array('surat_id' => $id));
@@ -282,6 +295,113 @@ class Admin extends CI_Controller {
 		}
 		
 	}
+
+	function print_surat_masuk(){
+		
+			$data['data'] = $this->model_admin->semua();
+
+			$this->load->view('admin/print_surat_masuk', $data);
+		
+		
+	}
+
+	function print_surat_keluar(){
+		
+			$data['data'] = $this->model_admin->semua2();
+
+			$this->load->view('admin/print_surat_keluar', $data);
+		
+		
+	}
+
+
+
+
+//  
+
+
+		function tambah_disposisi(){
+		$a['page']	= "tambah_disposisi";
+		
+		$this->load->view('admin/index', $a);
+
+	}
+		
+	
+	// function edit_disposisi($id){
+	// 	$a['editdata']	= $this->db->get_where('tb_surat_keluar',array('surat_id'=>$id))->result_object();		
+	// 	$a['page']	= 'edit_surat_keluar';
+		
+	// 	$this->load->view('admin/index', $a);
+	// }
+
+	// function update_disposisi(){
+	// 	$id_gambar = $this->input->post('id_gambar');
+	// 	$gambar = $this->input->post('gambar');
+	// 	$surat_id = $this->input->post('surat_id');
+	
+	// 	$object = array(
+	// 			'id_gambar' => $id_gambar,
+	// 			'gambar' => $gambar,
+	// 			'surat_id' => $surat_id
+				
+	// 		);
+	// 	$this->db->where('id_gambar', $id);
+	// 	$this->db->update('gambar', $object); 
+
+	// 	$post = $this->input->post();
+ //        $this->id_gambar = $post['id'];
+ //        $this->id = $post['keperluan'];
+ //        if (!empty($_FILES['gambar']['name'])) {
+ //            $this->gambar = $this->_uploadImage();
+ //        } else {
+ //            $this->gambar = $post['old_image'];
+ //        }
+ //        $this->db->update($this->_table, $this, array('id_gambar' => $post['id']));
+
+	
+	// 	redirect('admin/disposisi','refresh');
+	// }
+	  public function add()
+    {
+        $gambar = $this->image_model;
+        $validation = $this->form_validation;
+        $validation->set_rules($gambar->rules());
+
+        if ($validation->run()) {
+            $gambar->save();
+            $this->session->set_flashdata('success', 'Berhasil disimpan');
+        }
+        $this->load->view('admin/tambah_disposisi');
+    }
+    // public function edit($id = null)
+    // {
+    //     if (!isset($id)) redirect('admin/disposisi');
+       
+    //     $gambar = $this->image_model;
+    //     $validation = $this->form_validation;
+    //     $validation->set_rules($gambar->rules());
+    //     if ($validation->run()) {
+    //         $gambar->update();
+    //         $this->session->set_flashdata('success', 'Berhasil disimpan');
+    //     }
+    //     $data['gambar'] = $gambar->getById($id);
+    //     if (!$data['gambar']) show_404();
+        
+    //     $this->load->view('admin/product/edit_form', $data);
+    // }
+    public function delete($id=null)
+    {
+        if (!isset($id)) show_404();
+        
+        if ($this->image_model->delete($id)) {
+            redirect(site_url('admin/disposisi'));
+        }
+    }
+
+
+
+
 
 }
 

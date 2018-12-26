@@ -70,4 +70,12 @@ class Model_admin extends CI_Model {
 		$query = $this->db->get_where($table, $where);
 		return $query->result();
 	}
+
+	public function semua(){
+		return  $this->db->get('tb_jenis_surat');
+	}
+
+	public function semua2(){
+		return  $this->db->get('tb_surat_keluar');
+	}
 }

@@ -23,8 +23,9 @@
                   <h3 class="box-title">
                   	<a href="<?php echo base_url(); ?>admin/tambah_surat_keluar" class="btn btn-sm btn-primary btn-flat"><i class="fa fa-edit"></i> Tambah</a>
                     <button class="btn btn-sm btn-light btn-flat" title="view" data-toggle="modal" data-target="#lihatlaporan2"><i class="fa fa-eye"></i> Lihat Data</button>
-                    <button class="btn btn-sm btn-success btn-flat" title="view" data-toggle="modal" data-target="#lihatlaporan2"><i class="fa fa-print"></i>Print Data</button>
-                     
+                   <a href="print_surat_keluar" target="_blank">
+                                <button class="btn btn-sm btn-danger btn-flat" ><i class="fa fa-print"></i> Print</button></a>
+             
             
             <!-- bagian print -->
                      <!--  <a href="./admin/print_surat_keluar.php?surat_id=<? ?>" target="_blank"><button class="btn btn-sm btn-warning btn-flat"><i class="fa fa-print"></i> Cetak Data Surat Keluar </button></a> -->
@@ -100,7 +101,7 @@ $koneksi = mysqli_connect($host, $user, $password, $database);
  
 
 <?php
-$query = mysqli_query($koneksi,"SELECT * FROM tb_jenis_surat ORDER BY surat_id DESC");
+$query = mysqli_query($koneksi,"SELECT * FROM tb_surat_keluar ORDER BY surat_id DESC");
 ?>
 
 
@@ -125,7 +126,7 @@ $query = mysqli_query($koneksi,"SELECT * FROM tb_jenis_surat ORDER BY surat_id D
                    <div class="col-lg-12" style="padding-left: 10%; padding-right: 10%">
                      <div class="row">
                        <div class="col-sm-2" style="text-align: center;">
-                         <img src="http://4.bp.blogspot.com/-LqUyMLMG05w/Ty0S-w100jI/AAAAAAAABC0/2AmjPy4Br1s/s1600/logo_BMKG.png" style="width: 60%; height: auto;">
+                         <img src="<?php echo base_url() ?>logo_BMKG.png" style="width: 60%; height: auto;">
                        </div>
                           <div class="col-sm-10" style="text-align: center;">
                             BADAN METEOROLOGI KLIMATOLOGI DAN GEOFISIKA <br>

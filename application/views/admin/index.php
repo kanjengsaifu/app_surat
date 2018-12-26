@@ -88,6 +88,14 @@
                 <i class="fa fa-user"></i> <span>User</span> 
               </a>
             </li>
+
+             </li>
+              <li class="<?php if($page == 'disposisi'){echo 'active';} ?>">
+              <a href="<?php echo base_url(); ?>admin/disposisi">
+                <i class="fa fa-user"></i> <span>disposisi</span> 
+              </a>
+            </li>
+           
           </ul>
         </section>
         <!-- /.sidebar -->
