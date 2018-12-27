@@ -92,7 +92,7 @@
              </li>
               <li class="<?php if($page == 'disposisi'){echo 'active';} ?>">
               <a href="<?php echo base_url(); ?>admin/disposisi">
-                <i class="fa fa-user"></i> <span>disposisi</span> 
+                <i class="fa fa-image"></i> <span>Disposisi</span> 
               </a>
             </li>
            
@@ -107,6 +107,17 @@
       <?php $this->load->view('admin/'.$page); ?>
     </div><!-- ./wrapper -->
 
+      <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b><?php 
+          date_default_timezone_set('Asia/jakarta');
+          $time = time();
+          echo date ('d M Y H:i:s', $time);
+          ?></b>
+        </div>
+       <strong>Copyright &copy; <?php echo date('Y') ?> <a href="#">BMKG YOGYAKARTA</a>.
+      </footer>
+  
     <!-- jQuery 2.1.4 -->
     <script src="<?php echo base_url(); ?>assets/plugins/jQuery/jQuery-2.1.4.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->

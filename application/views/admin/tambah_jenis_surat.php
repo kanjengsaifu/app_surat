@@ -6,11 +6,12 @@
           <section class="content-header">
             <h1>
               Tambah
-              <small>Jenis Surat</small>
+              <small>Surat Masuk</small>
             </h1>
             <ol class="breadcrumb">
-              <li><i class="fa fa-dashboard"></i> Home</option></li>
-              <li><option href="<?php echo base_url(); ?>admin/jenis_surat">Jenis Surat</option></li>
+
+              <li><i class="fa fa-dashboard"></i> Home</a></li>
+              <li><a href="<?php echo base_url(); ?>admin/jenis_surat">Surat Masuk</a></li>
               <li class="active">Tambah</li>
               <!--
               <li><option >Layout</option></li>
@@ -23,7 +24,7 @@
           <section class="content">
             <div class="box box-info">
               <div class="box-header with-border">
-                <h3 class="box-title">Form Data Tambah Jenis Surat</h3>
+                <h3 class="box-title">Form Data Tambah Surat Masuk</h3>
               </div>
               <div class="box-body">
                 <!-- form start -->
@@ -39,7 +40,7 @@
                       <input type="text" class="form-control" name="tgl_terima" id="tgl_terima" data-date-format="yyyy-mm-dd" placeholder="Tanggal Diterima"/>
                   </div>
                      <div class="form-group">
-             <label for="exampleInputEmail1">kode  arsip</label>
+             <label for="exampleInputEmail1">Kode Arsip</label>
             
 
 <form id="formname" name="formname" method="post" action="submitform.asp" >

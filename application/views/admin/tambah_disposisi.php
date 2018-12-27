@@ -24,27 +24,32 @@
           <section class="content">
             <div class="box box-info">
               <div class="box-header with-border">
-                <h3 class="box-title">Form Data Tambah Surat Keluar</h3>
+                <h3 class="box-title">Form Tambah Disposisi Gambar</h3>
               </div>
               <div class="box-body">
                 <!-- form start -->
                
              <form action="<?php base_url('admin/add/') ?>" method="post" enctype="multipart/form-data" >
-               <div class="form-group">
-                <label for="name">gambar</label>
-                <input type="file" name="gambar" />
+
+
+             <div class="form-group">
+                    <label for="exampleInputEmail1">No Surat</label>
+                      <input type="text" class="form-control" name="no_surat" placeholder="No Surat"/>
+                  </div>
                 
+               <div class="form-group">
+                <label >Pilih Gambar</label>
+                <input type="file" name="gambar" />
               </div>
+              
+
+              <a href="<?php echo base_url(); ?>admin/disposisi" class="btn btn-warning"><i class="fa fa-arrow-left"></i> Batal</a>
               <input class="btn btn-success" type="submit" name="btn" value="Save" />
             </form>
 
 </div>
 
            
-            <!--   
-                  <a href="<?php echo base_url(); ?>admin/disposisi" class="btn btn-warning"><i class="fa fa-arrow-left"></i> Batal</a>
-                  <button type="submit" name="simpan" class="btn btn-success"><i class="fa fa-save"></i> Simpan</button> -->
-                <?php echo form_close(); ?>
                 
               </div><!-- /.box-body -->
             </div><!-- /.box -->

@@ -4,12 +4,12 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Surat Keluar
+            Disposisi Gambar
             <small>Control panel</small>
           </h1>
           <ol class="breadcrumb">
             <li><a href="index"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Surat Keluar</li>
+            <li class="active">Disposisi</li>
           </ol>
         </section>
 
@@ -21,15 +21,7 @@
               <div class="box">
                 <div class="box-header">
                   <h3 class="box-title">
-                 <a href="<?php echo site_url('admin/add') ?>"><i class="fas fa-plus"></i> Add New</a>
-                    <button class="btn btn-sm btn-light btn-flat" title="view" data-toggle="modal" data-target="#lihatlaporan2"><i class="fa fa-eye"></i> Lihat Data</button>
-                    <button class="btn btn-sm btn-success btn-flat" title="view" data-toggle="modal" data-target="#lihatlaporan2"><i class="fa fa-print"></i>Print Data</button>
-                     
-            
-            <!-- bagian print -->
-                     <!--  <a href="./admin/print_surat_keluar.php?surat_id=<? ?>" target="_blank"><button class="btn btn-sm btn-warning btn-flat"><i class="fa fa-print"></i> Cetak Data Surat Keluar </button></a> -->
-                     
-
+                 <a href="<?php echo site_url('admin/add') ?>" class="btn btn-sm btn-primary btn-flat"><i class="fa fa-plus"> </i>  Tambah Disposisi Gambar </a>
 
                      </h3>
                   
@@ -40,11 +32,11 @@
                   <table id="example1" class="table table-bordered table-hover dataTable" >
                     <thead>
                       <tr>
-                        <th>no</th>
-                
-                        <th>gambar</th>
+                        <th>No</th>
+                        <th>No Surat</th>
+                        <th>Gambar</th>
                
-                           <th>aksi</th>
+                           <th>Aksi</th>
                     
                  
                       
@@ -56,7 +48,8 @@
                         ?>
                       <tr>
                       <td><?php echo $no++ ?></td>
-                  
+
+                      <td> <div style="width: 100px;"><?php echo ucwords($lihat->surat_id) ?></td>                   
                       <td>  <img src="<?php echo base_url('upload/files/'.$lihat->gambar) ?>" width="64" /></td> </div>
                     
                      

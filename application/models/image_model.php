@@ -41,12 +41,13 @@ class Image_model extends CI_Model
     public function save()
     {
         $post = $this->input->post();
+
         $query = $this->db->query("SELECT * from gambar");
         $total= $query->num_rows();
         $total +=1;            
         $this->id_gambar = "$total";
         $this->gambar = $this->_uploadImage();
-        $this->surat_id = "1";
+        $this->surat_id =$post["no_surat"];
         $this->db->insert($this->_table, $this);
         redirect('admin/disposisi');
     }
@@ -77,9 +78,9 @@ class Image_model extends CI_Model
     {
     $config['upload_path']          = './upload/files/';
     $config['allowed_types']        = 'gif|jpg|png';
-    $config['file_name']            = $this->id_gambar;
+    $config['file_name']            = $this->gambar;
     $config['overwrite']            = true;
-    $config['max_size']             = 1024; // 1MB
+    $config['max_size']             = 8192; // 8MB
     // $config['max_width']            = 1024;
     // $config['max_height']           = 768;
     $this->load->library('upload', $config);

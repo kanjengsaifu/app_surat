@@ -73,7 +73,7 @@
                   <p> Disposisi</p>
                 </div>
                 <div class="icon">
-                  <i class="fa fa-inbox"></i>
+                  <i class="fa fa-image"></i>
                 </div>
                 <a href="<?php echo base_url(); ?>admin/disposisi" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>

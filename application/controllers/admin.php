@@ -320,12 +320,6 @@ class Admin extends CI_Controller {
 //  
 
 
-		function tambah_disposisi(){
-		$a['page']	= "tambah_disposisi";
-		
-		$this->load->view('admin/index', $a);
-
-	}
 		
 	
 	// function edit_disposisi($id){
@@ -362,6 +356,15 @@ class Admin extends CI_Controller {
 	
 	// 	redirect('admin/disposisi','refresh');
 	// }
+
+
+	// function tambah_disposisi(){
+	// 	$a['page']	= "tambah_disposisi";
+		
+	// 	$this->load->view('admin/index', $a);
+
+	// }
+
 	  public function add()
     {
         $gambar = $this->image_model;
@@ -372,7 +375,12 @@ class Admin extends CI_Controller {
             $gambar->save();
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
-        $this->load->view('admin/tambah_disposisi');
+        $a['page']	= "tambah_disposisi";
+		
+		$this->load->view('admin/index', $a);
+
+
+      	
         
     }
     // public function edit($id = null)
